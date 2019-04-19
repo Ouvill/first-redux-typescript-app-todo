@@ -1,5 +1,5 @@
 import { ToDoActionType, AppState, ToDo, FilterType } from "./types";
-import { stat } from "fs";
+import { combineReducers } from "redux";
 
 const initialState: AppState = {
   visibilityFilter: "SHOW_ALL",
@@ -41,12 +41,19 @@ function visibilityFilter(
   }
 }
 
-function todoApp(
-  state: AppState = initialState,
-  action: ToDoActionType
-): AppState {
-  return {
-    visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-    todos: todos(state.todos, action)
-  };
-}
+// function todoApp(
+//   state: AppState = initialState,
+//   action: ToDoActionType
+// ): AppState {
+//   return {
+//     visibilityFilter: visibilityFilter(state.visibilityFilter, action),
+//     todos: todos(state.todos, action)
+//   };
+// }
+
+const todoApp = combineReducers({
+  visibilityFilter,
+  todos
+});
+
+export default todoApp;
