@@ -12,6 +12,12 @@ interface toggleTodo {
   index: number;
 }
 
+export const VisibilityFiters = {
+  SHOW_ALL: "SHOW_ALL",
+  SHOW_COMPLETED: "SHOW_COMPLETED",
+  SHOW_ACTIVE: "SHOW_ACTIVE"
+};
+
 export type FilterType = "SHOW_ALL" | "SHOW_COMPLETED" | "SHOW_ACTIVE";
 
 interface setVisibiilityFilter {
